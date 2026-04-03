@@ -224,6 +224,11 @@ input[type=range]:focus::-ms-fill-upper {
         display: none;
     }
 }
+.show-mobile {
+    @media (min-width: 60rem) {
+        display: none;
+    }
+}
 
 
 

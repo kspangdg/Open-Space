@@ -135,7 +135,7 @@ window.addEventListener('mousemove', (e) => {
     velTheta = (e.clientX - prevX) * 0.005; 
     velPhi = (e.clientY - prevY) * 0.005;
     theta -= velTheta; 
-    phi = Math.max(MIN_PHI, Math.min(MAX_PHI, phi+velPhi));
+    phi = Math.max(MIN_PHI, Math.min(MAX_PHI, phi - velPhi));
     prevX = e.clientX; 
     prevY = e.clientY;
 });
@@ -173,7 +173,7 @@ container.addEventListener('touchmove', (e) => {
         velTheta = (e.touches[0].clientX - prevX) * 0.005; 
         velPhi = (e.touches[0].clientY - prevY) * 0.005;
         theta -= velTheta; 
-        phi = Math.max(MIN_PHI, Math.min(MAX_PHI, phi + velPhi));
+        phi = Math.max(MIN_PHI, Math.min(MAX_PHI, phi - velPhi));
         prevX = e.touches[0].clientX; 
         prevY = e.touches[0].clientY;
     }
@@ -216,8 +216,10 @@ function animate() {
     simMs += dtReal * simSpeed;
 
     if (!isDragging) {
-        velTheta *= 0.93; velPhi *= 0.93;
-        theta -= velTheta; phi = Math.max(MIN_PHI, Math.min(MAX_PHI, phi+velPhi));
+        velTheta *= 0.93; 
+        velPhi *= 0.93;
+        theta -= velTheta; 
+        phi = Math.max(MIN_PHI, Math.min(MAX_PHI, phi+velPhi));
         theta -= 0.00001;
     }
     radius += (targetRadius - radius) * 0.08;
@@ -231,7 +233,7 @@ function animate() {
         let i = sats.length;
         while (i--) {
             const p = satPos(sats[i], simMs);
-            pos[i * 3]   = p.x;
+            pos[i * 3] = p.x;
             pos[i * 3 + 1] = p.y;
             pos[i * 3 + 2] = p.z;
         }

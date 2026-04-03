@@ -33,15 +33,15 @@
 
     <!-- Footer --------------------------------------------------->
     <footer class="footer w-full flex justify-between items-center">
-        <div class="speed flex items-center gap-20">
+        <div class="speed flex items-center gap-20 hide-mobile">
             <label class="flex items-center gap-8">
-                <span class="p light-gray"><span class="hide-mobile">Simulation </span>Speed</span>
+                <span class="p light-gray">Simulation Speed</span>
                 <span class="data p bg-darkgray border rounded white" id="speed-label">005x<span>
             </label>
             <input id="speed-slider" type="range" min="1" max="100" value="5"/>
         </div>
-        <div class="hint p gray hide-mobile">Drag to rotate &nbsp;·&nbsp; Scroll to zoom</div>
-        <div class="version p gray flex justify-end">V<span class="hide-mobile">ersion&nbsp;</span>0.1.0</div>
+        <div class="hint p gray">Drag to rotate &nbsp;-&nbsp; <span class="hide-mobile">Scroll</span><span class="show-mobile">Pinch</span> to zoom</div>
+        <div class="version p gray flex justify-end hide-mobile">Version 0.1.0</div>
     </footer>
 
     <!-- Scripts -------------------------------------------------->

@@ -20,6 +20,9 @@
     left: 0;
     bottom: 0;
     padding: var(--s12) var(--s20);
+    @media (max-width: 60rem) {
+        justify-content: center;
+    }
 }
 .footer .version {
     @media (min-width: 60rem) {
