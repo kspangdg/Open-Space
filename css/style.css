@@ -1,0 +1,28 @@
+/*
+ * STYLE CSS
+ * Primary custom styles for the app.
+ */
+
+/* header ------------------*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: var(--s12) var(--s20);
+}
+.header .links {
+    width: 140px;
+}
+
+/* footer ------------------*/
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: var(--s12) var(--s20);
+}
+.footer .version {
+    @media (min-width: 60rem) {
+        width: 254px;
+    }
+}

@@ -1,0 +1,229 @@
+/**
+ * BASE CSS
+ * Defualt config, variables, and helper classes.
+ */
+
+/* vars ------------------*/
+:root {
+    --s4: 0.25rem;
+    --s8: 0.5rem;
+    --s12: 0.75rem;
+    --s16: 1rem;
+    --s20: 1.25rem;
+    --s24: 1.5rem;
+    --s28: 1.75rem;
+    --s32: 2rem;
+    --s48: 3rem;
+    --s64: 4rem;
+    --s64: 4rem;
+    --s80: 5rem;
+
+    --back: #020202;
+    --dark-gray: #171717;
+    --gray: #606060;
+    --light-gray: #B0B0B0;
+    --white: #E0E0E0;
+    --primary: #2D5481;
+}
+
+/* fonts ---------------------*/
+@font-face {
+  font-display: swap;
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/geist-v4-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-display: swap;
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/geist-mono-v4-latin-300.woff2') format('woff2');
+}
+
+/* defualts ------------------*/
+* {
+    box-sizing: border-box;
+    border: 0 solid;
+}
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body { 
+    background: var(--black); 
+    overflow: clip; 
+    width:100vw; 
+    height:100vh; 
+}
+#root { 
+    width: 100vw; 
+    height: 100vh; 
+    cursor: grab; 
+}
+#root:active { 
+    cursor:grabbing; 
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 0;
+    width: var(--s80);
+    background: transparent;
+
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    height: 1px;
+    cursor: pointer;
+    box-shadow: none;
+    background: var(--gray);
+}
+input[type=range]::-webkit-slider-thumb {
+    border: 1px solid var(--gray);
+    box-shadow: none;
+    height: var(--s16);
+    width: var(--s16);
+    border-radius: var(--s8);
+    background: var(--dark-gray);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -0.4rem;
+}
+input[type=range]::-moz-range-track {
+    width: var(--s80);
+    height: 0.5rem;
+    cursor: pointer;
+    box-shadow: none;
+    border-radius: 0.5rem;
+    background: var(--black);
+    border: solid 1px var(--gray);
+}
+input[type=range]::-moz-range-thumb {
+    border: 1px solid var(--gray);
+    box-shadow: none;
+    height: var(--s16);
+    width: var(--s16);
+    border-radius: var(--s8);
+    background: var(--dark-gray);
+    cursor: pointer;
+}
+input[type=range]::-ms-track {
+    width: var(--s64);
+    height: 0.5rem;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: var(--gray);
+    border: 0.2px solid var(--black);
+    border-radius: 2.6px;
+    box-shadow: none;
+}
+input[type=range]::-ms-fill-upper {
+    background: var(--gray);
+    border: 0.2px solid var(--black);
+    border-radius: 2.6px;
+    box-shadow: none;
+}
+input[type=range]::-ms-thumb {
+    box-shadow: none;
+    border: 1px solid var(--black);
+    height: 36px;
+    width: var(--s16);
+    border-radius: var(--s4);
+    background: var(--gray);
+    cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: var(--gray);
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: var(--gray);
+}
+
+
+/* typography ------------*/
+.p {
+    font-size: var(--s12);
+    font-weight: 300;
+    line-height: 100%;
+    text-transform: uppercase;
+    font-family: "Geist Mono", monospace;
+    font-style: normal;
+}
+.h1 {
+    font-size: var(--s20);
+    font-weight: 600;
+    line-height: 100%;
+    font-family: "Geist", sans-serif;
+    font-style: normal;
+}
+
+/* colors ----------------*/
+.white {
+    color: var(--white);
+}
+.light-gray {
+    color: var(--light-gray);
+}
+.gray {
+    color: var(--gray);
+}
+.bg-darkgray {
+    background-color: var(--dark-gray);
+}
+
+/* borders ---------------*/
+.border {
+    border: solid 1px var(--gray);
+}
+.rounded {
+    border-radius: var(--s8);
+}
+
+/* layout ---------------*/
+.flex {
+    display: flex;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.justify-end {
+    justify-content: end;
+}
+.items-center {
+    align-items: center;
+}
+.w-full {
+    width: 100%;
+}
+.gap-20 {
+    gap: var(--s20);
+}
+.gap-8 {
+    gap: var(--s8);
+}
+
+/* helper --------------*/
+.data {
+    padding: var(--s4) var(--s8);
+}
+.hide-mobile {
+    @media (max-width: 60rem) {
+        display: none;
+    }
+}
+
+
+
