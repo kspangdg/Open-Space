@@ -3,6 +3,8 @@
  * Primary custom styles for the app.
  */
 
+@import "base.css";
+
 /* header ------------------*/
 .header {
     position: fixed;

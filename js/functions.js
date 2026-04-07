@@ -99,31 +99,3 @@ function satPos(sat, simMs) {
 
     return { x: xE, y: zE, z: -yE };
 }
-
-/**
- * Add orbit rings
- * @param {obj} sat - space object js obj
- * @return {void} adds rings to three js scene 
- */
-function addOrbitRing(sat) {
-    const pts = [];
-    const steps = 32;
-    const cosO = Math.cos(sat.raan), sinO = Math.sin(sat.raan);
-    const cosI = Math.cos(sat.inc),  sinI = Math.sin(sat.inc);
-    const cosW = Math.cos(sat.argp), sinW = Math.sin(sat.argp);
-    let nu, r, xP, xE, yE, zE;
-    let i = 0
-    while (i <= steps) {
-        nu = (i / steps) * 2 * Math.PI;
-        r  = sat.a * (1 - sat.ecc * sat.ecc) / (1 + sat.ecc * Math.cos(nu));
-        xP = r * Math.cos(nu), yP = r * Math.sin(nu);
-        xE = (cosO * cosW - sinO * sinW * cosI ) * xP + ( -cosO * sinW - sinO * cosW * cosI ) * yP;
-        yE = (sinO * cosW + cosO * sinW * cosI ) * xP + ( -sinO * sinW + cosO * cosW * cosI ) * yP;
-        zE = sinI * sinW * xP + sinI * cosW * yP;
-        pts.push(new THREE.Vector3(xE, zE, -yE));
-        i++;
-    }
-    const geo = new THREE.BufferGeometry().setFromPoints(pts);
-    const mat = new THREE.LineBasicMaterial({ color:sat.color, transparent:true, opacity:0.075, depthWrite:false });
-    scene.add(new THREE.Line(geo, mat));
-}

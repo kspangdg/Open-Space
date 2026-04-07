@@ -1,3 +1,6 @@
+//@prepros-prepend vendor/three.min.js
+//@prepros-prepend functions.js
+
 /**
  * APP JS
  * Primary scripts for the app.
@@ -86,13 +89,6 @@ while (i < keys.length) {
     scene.add(pts);
     satMeshes.push({ pts, geo, sats });
     i++;
-}
-
-// Orbit rings ---------------------------------------------------------------->
-i = 0;
-while (i < satellites.length) {
-    addOrbitRing(satellites[i]) // this was just for fun, it's been reduced for proformance, therefor not complete/accuret
-    i += 75;
 }
 
 // Camera and event listeners ------------------------------------------------->
